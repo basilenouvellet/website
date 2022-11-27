@@ -31,7 +31,7 @@ defmodule WebsiteWeb.CoreComponents do
         @class
       ]}
     >
-      <img src={@img_url || "#{@url}/favicon.ico"} class="h-8 w-8 sm:h-10 sm:w-10" />
+      <img src={@img_url || "#{@url}/favicon.ico"} alt={@label} class="h-8 w-8 sm:h-10 sm:w-10" />
       <div class="sm:text-center">
         <span class="block text-base text-neutral-200 group-hover:text-neutral-300 font-semibold transition-colors">
           <%= @label %>
