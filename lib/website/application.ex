@@ -11,7 +11,8 @@ defmodule Website.Application do
       # Start the Telemetry supervisor
       WebsiteWeb.Telemetry,
       # Start the Ecto repository
-      Website.Repo,
+      # NOTE: No need for a database right now.
+      # Website.Repo,
       # Start the PubSub system
       {Phoenix.PubSub, name: Website.PubSub},
       # Start Finch
