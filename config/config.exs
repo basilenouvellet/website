@@ -8,13 +8,13 @@
 import Config
 
 config :website,
-  ecto_repos: [Website.Repo],
+  # ecto_repos: [Website.Repo],
   generators: [binary_id: true]
 
-config :website, Website.Repo,
-  migration_primary_key: [name: :id, type: :binary_id],
-  migration_foreign_key: [column: :id, type: :binary_id],
-  migration_timestamps: [type: :utc_datetime_usec]
+# config :website, Website.Repo,
+#   migration_primary_key: [name: :id, type: :binary_id],
+#   migration_foreign_key: [column: :id, type: :binary_id],
+#   migration_timestamps: [type: :utc_datetime_usec]
 
 # Configures the endpoint
 config :website, WebsiteWeb.Endpoint,
