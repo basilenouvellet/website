@@ -1,5 +1,10 @@
 import Config
 
+config :os_mon,
+  start_cpu_sup: false,
+  start_disksup: false,
+  start_memsup: false
+
 # Configure your database
 #
 # The MIX_TEST_PARTITION environment variable can be used
