@@ -66,7 +66,13 @@ defmodule Website.MixProject do
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
-      "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"]
+      "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"],
+      ci: [
+        "format",
+        "cmd MIX_ENV=dev  mix compile --all-warnings --warnings-as-errors",
+        "cmd MIX_ENV=test mix compile --all-warnings --warnings-as-errors",
+        "cmd MIX_ENV=test mix test"
+      ]
     ]
   end
 end
