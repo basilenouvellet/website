@@ -23,7 +23,7 @@ defmodule WebsiteWeb.Endpoint do
     at: "/",
     from: :website,
     gzip: true,
-    only: WebsiteWeb.static_paths()
+    only_matching: WebsiteWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
