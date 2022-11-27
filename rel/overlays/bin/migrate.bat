@@ -1,0 +1,1 @@
+call "%~dp0\website" eval Website.Release.migrate
