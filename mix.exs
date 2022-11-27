@@ -12,6 +12,7 @@ defmodule Website.MixProject do
         summary: [threshold: 0]
       ],
       preferred_cli_env: ["test.watch": :test],
+      dialyzer: dialyzer(),
       aliases: aliases(),
       deps: deps()
     ]
@@ -31,11 +32,19 @@ defmodule Website.MixProject do
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_), do: ["lib"]
 
+  defp dialyzer do
+    [
+      plt_core_path: "priv/plts",
+      plt_file: {:no_warn, "priv/plts/dialyzer.plt"}
+    ]
+  end
+
   # Specifies your project dependencies.
   #
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
       {:mix_test_watch, "~> 1.0", only: [:dev, :test], runtime: false},
       {:phoenix, "~> 1.7.0-rc.0", override: true},
       {:phoenix_ecto, "~> 4.4"},
