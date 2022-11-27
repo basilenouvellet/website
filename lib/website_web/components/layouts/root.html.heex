@@ -5,7 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content={get_csrf_token()} />
 
+    <meta name="theme-color" content="#262626" />
+    <meta
+      name="description"
+      content={
+        assigns[:page_description] ||
+          "Personal website of Basile Nouvellet - Product software engineer"
+      }
+    />
+
+    <%!-- Facebook Open Graph meta tags --%>
+    <meta property="og:type" content="website" />
+
+    <%!-- Twitter Card meta tags --%>
+    <meta name="twitter:card" content={assigns[:page_twitter_card] || "summary"} />
+
     <.live_title><%= assigns[:page_title] || "Basile Nouvellet" %></.live_title>
+
+    <link rel="icon" href={~p"/favicon.ico?v=2"} sizes="any" />
 
     <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
 
