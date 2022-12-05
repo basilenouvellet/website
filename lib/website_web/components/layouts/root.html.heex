@@ -22,6 +22,12 @@
 
     <.live_title><%= assigns[:page_title] || "Basile Nouvellet" %></.live_title>
 
+    <%= if (canonical_path = assigns[:page_canonical_path]) not in [nil, ""] do %>
+      <%= if (canonical_host = Application.get_env(:website, :canonical_host)) not in [nil, ""] do %>
+        <link rel="canonical" href={"https://#{Path.join(canonical_host, canonical_path)}"} />
+      <% end %>
+    <% end %>
+
     <link rel="icon" href={~p"/favicon.ico?v=2"} sizes="any" />
 
     <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
