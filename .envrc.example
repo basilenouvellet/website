@@ -4,4 +4,8 @@ export DATABASE_NAME="website"
 export DATABASE_USERNAME="postgres"
 export DATABASE_PASSWORD="postgres"
 
+export UMAMI_TRACKING_ENABLED="false"
+export UMAMI_BASE_URL="http://localhost:3000"
+export UMAMI_WEBSITE_ID="" # read it from local db
+
 export SECRET_KEY_BASE="" # run `mix phx.gen.secret` to generate one

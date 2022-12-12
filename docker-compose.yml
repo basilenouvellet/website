@@ -12,6 +12,9 @@ services:
       PHX_HOST: localhost
       SECRET_KEY_BASE: ${SECRET_KEY_BASE}
       DATABASE_URL: postgres://${DATABASE_USERNAME}:${DATABASE_PASSWORD}@db:5432/${DATABASE_NAME}
+      UMAMI_TRACKING_ENABLED: "true"
+      UMAMI_BASE_URL: http://analytics:3000
+      UMAMI_WEBSITE_ID: ${UMAMI_WEBSITE_ID}
 
   db:
     image: postgres:14-alpine

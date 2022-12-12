@@ -1,6 +1,8 @@
 defmodule WebsiteWeb.Router do
   use WebsiteWeb, :router
 
+  alias WebsiteWeb.Plugs
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -10,12 +12,16 @@ defmodule WebsiteWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :analytics do
+    plug Plugs.Analytics
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
 
   scope "/", WebsiteWeb do
-    pipe_through :browser
+    pipe_through [:browser, :analytics]
 
     get "/", PageController, :home
   end

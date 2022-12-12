@@ -11,6 +11,9 @@ processes = []
   ECTO_IPV6 = "true"
   ERL_AFLAGS = "-proto_dist inet6_tcp"
   PHX_HOST = "basile.nouvellet.com"
+  UMAMI_TRACKING_ENABLED = "true"
+  # UMAMI_BASE_URL set as secret
+  # UMAMI_WEBSITE_ID set as secret
   PORT = "8080"
 
 [experimental]

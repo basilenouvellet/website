@@ -20,6 +20,11 @@ if System.get_env("PHX_SERVER") do
   config :website, WebsiteWeb.Endpoint, server: true
 end
 
+config :website, :umami,
+  base_url: System.get_env("UMAMI_BASE_URL"),
+  website_id: System.get_env("UMAMI_WEBSITE_ID"),
+  tracking_enabled: System.get_env("UMAMI_TRACKING_ENABLED") == "true"
+
 if config_env() == :prod do
   # database_url =
   #   System.get_env("DATABASE_URL") ||
