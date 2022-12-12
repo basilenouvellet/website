@@ -44,6 +44,7 @@ defmodule Website.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:req, "~> 0.3"},
       {:plug_canonical_host, "~> 2.0"},
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
       {:mix_test_watch, "~> 1.0", only: [:dev, :test], runtime: false},
