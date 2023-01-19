@@ -57,12 +57,16 @@ FROM deps AS build-assets
 # COPY assets/package.json assets/package-lock.json assets/
 # RUN npm install --prefix assets --no-fund --no-audit
 
+ARG MIX_ENV="prod"
+
+# install Tailwind & Esbuild
+RUN mix assets.setup
+
 COPY priv priv
 # NOTE: 'lib' is needed to see Tailwind classes usage in the code
 COPY lib lib
 COPY assets assets
 
-ARG MIX_ENV="prod"
 RUN mix assets.deploy
 
 ###############
