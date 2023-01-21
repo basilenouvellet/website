@@ -2,6 +2,7 @@ defmodule WebsiteWeb.Router do
   use WebsiteWeb, :router
 
   alias WebsiteWeb.Plugs
+  alias WebsiteWeb.Hooks
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -21,11 +22,18 @@ defmodule WebsiteWeb.Router do
   end
 
   scope "/", WebsiteWeb do
-    pipe_through [:browser, :analytics]
+    pipe_through :browser
 
-    live "/", HomeLive, :index
-    # get "/", PageController, :home
+    live_session :default, on_mount: [Hooks.Analytics] do
+      live "/", HomeLive, :index
+    end
   end
+
+  # scope "/", WebsiteWeb do
+  #   pipe_through [:browser, :analytics]
+
+  #   get "/", PageController, :home
+  # end
 
   # Other scopes may use custom stacks.
   # scope "/api", WebsiteWeb do
