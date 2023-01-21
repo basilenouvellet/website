@@ -23,7 +23,8 @@ defmodule WebsiteWeb.Router do
   scope "/", WebsiteWeb do
     pipe_through [:browser, :analytics]
 
-    get "/", PageController, :home
+    live "/", HomeLive, :index
+    # get "/", PageController, :home
   end
 
   # Other scopes may use custom stacks.
