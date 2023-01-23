@@ -26,17 +26,16 @@ defmodule WebsiteWeb.CoreComponents do
       target="_blank"
       class={[
         "flex sm:flex-col items-center gap-4 py-4 sm:py-6 px-6",
-        "hover:bg-neutral-700 border border-neutral-400",
-        "rounded-2xl transition group",
+        "text-neutral-400",
+        "hover:bg-neutral-700 hover:text-neutral-200",
+        "rounded-2xl transition",
         @class
       ]}
     >
       <img src={@img_url || "#{@url}/favicon.ico"} alt={@label} class="h-8 w-8 sm:h-10 sm:w-10" />
       <div class="sm:text-center">
-        <span class="block text-base text-neutral-200 group-hover:text-neutral-300 font-semibold transition-colors">
-          <%= @label %>
-        </span>
-        <span class="block mt-1 text-xs text-neutral-400"><%= @url %></span>
+        <span class="block text-base font-bold"><%= @label %></span>
+        <span class="block mt-1 text-xs font-normal"><%= @url %></span>
       </div>
     </a>
     """
