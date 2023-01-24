@@ -3,3 +3,14 @@
 @import "tailwindcss/utilities";
 
 /* This file is for your main application CSS */
+
+@layer base {
+  html {
+    /* Deactivate blue background on touch on Android Chrome */
+    /* -webkit-tap-highlight-color: transparent; */
+    -webkit-tap-highlight-color: rgb(163 163 163 / 1); /* neutral-400 */
+
+    /* Color selected text properly */
+    @apply selection:bg-neutral-200 selection:text-neutral-800;
+  }
+}
