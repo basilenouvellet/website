@@ -56,7 +56,7 @@ config :website, WebsiteWeb.Endpoint,
 config :website, WebsiteWeb.Endpoint,
   live_reload: [
     patterns: [
-      ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
+      ~r"priv/static/.*(js|css|webp|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/website_web/(controllers|live|components)/.*(ex|heex)$"
     ]
