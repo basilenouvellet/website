@@ -54,7 +54,7 @@ defmodule WebsiteWeb.CoreComponents do
       class={[
         "inline-flex items-center gap-2",
         "py-1 px-2",
-        "font-medium text-neutral-400 hover:bg-neutral-200 hover:text-neutral-800",
+        "font-medium text-neutral-400 hover:bg-neutral-700 hover:text-neutral-200",
         "rounded-lg transition group",
         @class
       ]}
