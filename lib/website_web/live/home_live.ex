@@ -22,7 +22,7 @@ defmodule WebsiteWeb.HomeLive do
         <div>
           <%!-- BUILDING --%>
           <.section_title class="mt-16">
-            <:title>Building</:title>
+            <:title>building</:title>
           </.section_title>
 
           <div class="w-fit mt-4 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
@@ -41,7 +41,7 @@ defmodule WebsiteWeb.HomeLive do
 
           <%!-- WRITING --%>
           <.section_title class="mt-16">
-            <:title>Writing</:title>
+            <:title>writing</:title>
             <:action>
               <.link
                 navigate={~p"/writing"}
@@ -73,7 +73,7 @@ defmodule WebsiteWeb.HomeLive do
 
           <%!-- CONTACT --%>
           <.section_title class="mt-16">
-            <:title>Contact</:title>
+            <:title>contact</:title>
           </.section_title>
 
           <div class="w-fit mt-4 flex flex-wrap gap-6 text-sm text-dark-400">
