@@ -24,14 +24,14 @@ defmodule WebsiteWeb.CoreComponents do
         <%= for folder <- @folders do %>
           <.link
             navigate={folder.path}
-            class="py-0.5 px-1.5 text-neutral-400 font-medium hover:bg-neutral-700 hover:text-neutral-200 rounded transition"
+            class="py-0.5 px-1.5 text-dark-400 font-medium hover:bg-dark-700 hover:text-dark-200 rounded transition"
             phx-no-format
           ><%= folder.name %></.link>
-          <span class="text-neutral-600">/</span>
+          <span class="text-dark-600">/</span>
         <% end %>
       </div>
 
-      <h1 class="py-0.5 px-1.5 text-neutral-200 font-bold transition"><%= @h1 %></h1>
+      <h1 class="py-0.5 px-1.5 text-dark-200 font-bold transition"><%= @h1 %></h1>
     </div>
     """
   end
@@ -45,8 +45,8 @@ defmodule WebsiteWeb.CoreComponents do
     ~H"""
     <.link
       class={[
-        "font-medium text-neutral-400 border-2 border-transparent",
-        "hover:bg-neutral-700 hover:border-neutral-700 hover:text-neutral-200",
+        "font-medium text-dark-400 border-2 border-transparent",
+        "hover:bg-dark-700 hover:border-dark-700 hover:text-dark-200",
         "rounded overflow-hidden transition",
         @class
       ]}
@@ -73,8 +73,8 @@ defmodule WebsiteWeb.CoreComponents do
       target="_blank"
       class={[
         "flex items-center gap-4 py-4 px-6",
-        "text-neutral-400",
-        "hover:bg-neutral-700 hover:text-neutral-200",
+        "text-dark-400",
+        "hover:bg-dark-700 hover:text-dark-200",
         "rounded transition",
         @class
       ]}
@@ -101,7 +101,7 @@ defmodule WebsiteWeb.CoreComponents do
       class={[
         "inline-flex items-center gap-2",
         "py-1 px-2",
-        "font-medium text-neutral-400 hover:bg-neutral-700 hover:text-neutral-200",
+        "font-medium text-dark-400 hover:bg-dark-700 hover:text-dark-200",
         "rounded transition group",
         @class
       ]}
@@ -146,11 +146,7 @@ defmodule WebsiteWeb.CoreComponents do
   def modal(assigns) do
     ~H"""
     <div id={@id} phx-mounted={@show && show_modal(@id)} class="relative z-50 hidden">
-      <div
-        id={"#{@id}-bg"}
-        class="fixed inset-0 bg-neutral-50/90 transition-opacity"
-        aria-hidden="true"
-      />
+      <div id={"#{@id}-bg"} class="fixed inset-0 bg-dark-50/90 transition-opacity" aria-hidden="true" />
       <div
         class="fixed inset-0 overflow-y-auto"
         aria-labelledby={"#{@id}-title"}
@@ -167,7 +163,7 @@ defmodule WebsiteWeb.CoreComponents do
               phx-window-keydown={hide_modal(@on_cancel, @id)}
               phx-key="escape"
               phx-click-away={hide_modal(@on_cancel, @id)}
-              class="hidden relative rounded-2xl bg-white p-14 shadow-lg shadow-neutral-700/10 ring-1 ring-neutral-700/10 transition"
+              class="hidden relative rounded-2xl bg-white p-14 shadow-lg shadow-dark-700/10 ring-1 ring-dark-700/10 transition"
             >
               <div class="absolute top-6 right-5">
                 <button
@@ -181,10 +177,10 @@ defmodule WebsiteWeb.CoreComponents do
               </div>
               <div id={"#{@id}-content"}>
                 <header :if={@title != []}>
-                  <h1 id={"#{@id}-title"} class="text-lg font-semibold leading-8 text-neutral-800">
+                  <h1 id={"#{@id}-title"} class="text-lg font-semibold leading-8 text-dark-800">
                     <%= render_slot(@title) %>
                   </h1>
-                  <p :if={@subtitle != []} class="mt-2 text-sm leading-6 text-neutral-600">
+                  <p :if={@subtitle != []} class="mt-2 text-sm leading-6 text-dark-600">
                     <%= render_slot(@subtitle) %>
                   </p>
                 </header>
@@ -202,7 +198,7 @@ defmodule WebsiteWeb.CoreComponents do
                   <.link
                     :for={cancel <- @cancel}
                     phx-click={hide_modal(@on_cancel, @id)}
-                    class="text-sm font-semibold leading-6 text-neutral-900 hover:text-neutral-700"
+                    class="text-sm font-semibold leading-6 text-dark-900 hover:text-dark-700"
                   >
                     <%= render_slot(cancel) %>
                   </.link>
@@ -243,7 +239,7 @@ defmodule WebsiteWeb.CoreComponents do
       phx-click={JS.push("lv:clear-flash", value: %{key: @kind}) |> hide("#flash")}
       role="alert"
       class={[
-        "fixed hidden top-2 right-2 w-80 sm:w-96 z-50 rounded-lg p-3 shadow-md shadow-neutral-900/5 ring-1",
+        "fixed hidden top-2 right-2 w-80 sm:w-96 z-50 rounded-lg p-3 shadow-md shadow-dark-900/5 ring-1",
         @kind == :info && "bg-emerald-50 text-emerald-800 ring-emerald-500 fill-cyan-900",
         @kind == :error && "bg-rose-50 p-3 text-rose-900 shadow-md ring-rose-500 fill-rose-900"
       ]}
@@ -322,7 +318,7 @@ defmodule WebsiteWeb.CoreComponents do
     <button
       type={@type}
       class={[
-        "phx-submit-loading:opacity-75 rounded-lg bg-neutral-900 hover:bg-neutral-700 py-2 px-3",
+        "phx-submit-loading:opacity-75 rounded-lg bg-dark-900 hover:bg-dark-700 py-2 px-3",
         "text-sm font-semibold leading-6 text-white active:text-white/80",
         @class
       ]}
@@ -382,7 +378,7 @@ defmodule WebsiteWeb.CoreComponents do
     assigns = assign_new(assigns, :checked, fn -> input_equals?(assigns.value, "true") end)
 
     ~H"""
-    <label phx-feedback-for={@name} class="flex items-center gap-4 text-sm leading-6 text-neutral-600">
+    <label phx-feedback-for={@name} class="flex items-center gap-4 text-sm leading-6 text-dark-600">
       <input type="hidden" name={@name} value="false" />
       <input
         type="checkbox"
@@ -390,7 +386,7 @@ defmodule WebsiteWeb.CoreComponents do
         name={@name}
         value="true"
         checked={@checked}
-        class="rounded border-neutral-300 text-neutral-900 focus:ring-neutral-900"
+        class="rounded border-dark-300 text-dark-900 focus:ring-dark-900"
         {@rest}
       />
       <%= @label %>
@@ -405,7 +401,7 @@ defmodule WebsiteWeb.CoreComponents do
       <select
         id={@id}
         name={@name}
-        class="mt-1 block w-full py-2 px-3 border border-neutral-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-neutral-500 focus:border-neutral-500 sm:text-sm"
+        class="mt-1 block w-full py-2 px-3 border border-dark-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-dark-500 focus:border-dark-500 sm:text-sm"
         multiple={@multiple}
         {@rest}
       >
@@ -426,9 +422,9 @@ defmodule WebsiteWeb.CoreComponents do
         name={@name}
         class={[
           input_border(@errors),
-          "mt-2 block min-h-[6rem] w-full rounded-lg border-neutral-300 py-[7px] px-[11px]",
-          "text-neutral-900 focus:border-neutral-400 focus:outline-none focus:ring-4 focus:ring-neutral-800/5 sm:text-sm sm:leading-6",
-          "phx-no-feedback:border-neutral-300 phx-no-feedback:focus:border-neutral-400 phx-no-feedback:focus:ring-neutral-800/5"
+          "mt-2 block min-h-[6rem] w-full rounded-lg border-dark-300 py-[7px] px-[11px]",
+          "text-dark-900 focus:border-dark-400 focus:outline-none focus:ring-4 focus:ring-dark-800/5 sm:text-sm sm:leading-6",
+          "phx-no-feedback:border-dark-300 phx-no-feedback:focus:border-dark-400 phx-no-feedback:focus:ring-dark-800/5"
         ]}
         {@rest}
       >
@@ -450,9 +446,9 @@ defmodule WebsiteWeb.CoreComponents do
         value={@value}
         class={[
           input_border(@errors),
-          "mt-2 block w-full rounded-lg border-neutral-300 py-[7px] px-[11px]",
-          "text-neutral-900 focus:outline-none focus:ring-4 sm:text-sm sm:leading-6",
-          "phx-no-feedback:border-neutral-300 phx-no-feedback:focus:border-neutral-400 phx-no-feedback:focus:ring-neutral-800/5"
+          "mt-2 block w-full rounded-lg border-dark-300 py-[7px] px-[11px]",
+          "text-dark-900 focus:outline-none focus:ring-4 sm:text-sm sm:leading-6",
+          "phx-no-feedback:border-dark-300 phx-no-feedback:focus:border-dark-400 phx-no-feedback:focus:ring-dark-800/5"
         ]}
         {@rest}
       />
@@ -462,7 +458,7 @@ defmodule WebsiteWeb.CoreComponents do
   end
 
   defp input_border([] = _errors),
-    do: "border-neutral-300 focus:border-neutral-400 focus:ring-neutral-800/5"
+    do: "border-dark-300 focus:border-dark-400 focus:ring-dark-800/5"
 
   defp input_border([_ | _] = _errors),
     do: "border-rose-400 focus:border-rose-400 focus:ring-rose-400/10"
@@ -475,7 +471,7 @@ defmodule WebsiteWeb.CoreComponents do
 
   def label(assigns) do
     ~H"""
-    <label for={@for} class="block text-sm font-semibold leading-6 text-neutral-800">
+    <label for={@for} class="block text-sm font-semibold leading-6 text-dark-800">
       <%= render_slot(@inner_block) %>
     </label>
     """
@@ -508,10 +504,10 @@ defmodule WebsiteWeb.CoreComponents do
     ~H"""
     <header class={[@actions != [] && "flex items-center justify-between gap-6", @class]}>
       <div>
-        <h1 class="text-lg font-semibold leading-8 text-neutral-800">
+        <h1 class="text-lg font-semibold leading-8 text-dark-800">
           <%= render_slot(@inner_block) %>
         </h1>
-        <p :if={@subtitle != []} class="mt-2 text-sm leading-6 text-neutral-600">
+        <p :if={@subtitle != []} class="mt-2 text-sm leading-6 text-dark-600">
           <%= render_slot(@subtitle) %>
         </p>
       </div>
@@ -544,17 +540,17 @@ defmodule WebsiteWeb.CoreComponents do
     ~H"""
     <div id={@id} class="overflow-y-auto px-4 sm:overflow-visible sm:px-0">
       <table class="mt-11 w-[40rem] sm:w-full">
-        <thead class="text-left text-[0.8125rem] leading-6 text-neutral-500">
+        <thead class="text-left text-[0.8125rem] leading-6 text-dark-500">
           <tr>
             <th :for={col <- @col} class="p-0 pb-4 pr-6 font-normal"><%= col[:label] %></th>
             <th class="relative p-0 pb-4"><span class="sr-only"><%= gettext("Actions") %></span></th>
           </tr>
         </thead>
-        <tbody class="relative divide-y divide-neutral-100 border-t border-neutral-200 text-sm leading-6 text-neutral-700">
+        <tbody class="relative divide-y divide-dark-100 border-t border-dark-200 text-sm leading-6 text-dark-700">
           <tr
             :for={row <- @rows}
             id={"#{@id}-#{Phoenix.Param.to_param(row)}"}
-            class="relative group hover:bg-neutral-50"
+            class="relative group hover:bg-dark-50"
           >
             <td
               :for={{col, i} <- Enum.with_index(@col)}
@@ -562,11 +558,11 @@ defmodule WebsiteWeb.CoreComponents do
               class={["p-0", @row_click && "hover:cursor-pointer"]}
             >
               <div :if={i == 0}>
-                <span class="absolute h-full w-4 top-0 -left-4 group-hover:bg-neutral-50 sm:rounded-l-xl" />
-                <span class="absolute h-full w-4 top-0 -right-4 group-hover:bg-neutral-50 sm:rounded-r-xl" />
+                <span class="absolute h-full w-4 top-0 -left-4 group-hover:bg-dark-50 sm:rounded-l-xl" />
+                <span class="absolute h-full w-4 top-0 -right-4 group-hover:bg-dark-50 sm:rounded-r-xl" />
               </div>
               <div class="block py-4 pr-6">
-                <span class={["relative", i == 0 && "font-semibold text-neutral-900"]}>
+                <span class={["relative", i == 0 && "font-semibold text-dark-900"]}>
                   <%= render_slot(col, row) %>
                 </span>
               </div>
@@ -575,7 +571,7 @@ defmodule WebsiteWeb.CoreComponents do
               <div class="relative whitespace-nowrap py-4 text-right text-sm font-medium">
                 <span
                   :for={action <- @action}
-                  class="relative ml-4 font-semibold leading-6 text-neutral-900 hover:text-neutral-700"
+                  class="relative ml-4 font-semibold leading-6 text-dark-900 hover:text-dark-700"
                 >
                   <%= render_slot(action, row) %>
                 </span>
@@ -605,12 +601,12 @@ defmodule WebsiteWeb.CoreComponents do
   def list(assigns) do
     ~H"""
     <div class="mt-14">
-      <dl class="-my-4 divide-y divide-neutral-100">
+      <dl class="-my-4 divide-y divide-dark-100">
         <div :for={item <- @item} class="flex gap-4 py-4 sm:gap-8">
-          <dt class="w-1/4 flex-none text-[0.8125rem] leading-6 text-neutral-500">
+          <dt class="w-1/4 flex-none text-[0.8125rem] leading-6 text-dark-500">
             <%= item.title %>
           </dt>
-          <dd class="text-sm leading-6 text-neutral-700"><%= render_slot(item) %></dd>
+          <dd class="text-sm leading-6 text-dark-700"><%= render_slot(item) %></dd>
         </div>
       </dl>
     </div>
@@ -632,7 +628,7 @@ defmodule WebsiteWeb.CoreComponents do
     <div class="mt-16">
       <.link
         navigate={@navigate}
-        class="text-sm font-semibold leading-6 text-neutral-900 hover:text-neutral-700"
+        class="text-sm font-semibold leading-6 text-dark-900 hover:text-dark-700"
       >
         <Heroicons.arrow_left solid class="w-3 h-3 stroke-current inline" />
         <%= render_slot(@inner_block) %>

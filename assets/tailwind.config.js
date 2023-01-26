@@ -1,6 +1,7 @@
 // See the Tailwind configuration guide for advanced usage
 // https://tailwindcss.com/docs/configuration
 
+const colors = require("tailwindcss/colors");
 const plugin = require("tailwindcss/plugin");
 const defaultTheme = require("tailwindcss/defaultTheme");
 
@@ -9,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: "#FD4F00",
+        dark: colors.neutral,
       },
       fontFamily: {
         sans: ["Inter var", "Inter", ...defaultTheme.fontFamily.sans],

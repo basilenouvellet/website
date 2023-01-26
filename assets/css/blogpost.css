@@ -21,7 +21,7 @@
 }
 
 .blogpost a {
-  @apply font-medium underline hover:text-neutral-200 transition-colors;
+  @apply font-medium underline hover:text-dark-200 transition-colors;
 }
 
 .blogpost ul {
@@ -36,7 +36,7 @@
 }
 
 .blogpost blockquote {
-  @apply bg-neutral-700/30 px-3 py-2 rounded;
+  @apply bg-dark-700/30 px-3 py-2 rounded;
 }
 
 .blogpost blockquote p {
