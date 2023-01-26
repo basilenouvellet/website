@@ -1,15 +1,15 @@
 /* Stylesheet for generated blog posts */
 
 .blogpost * {
-  @apply mt-4;
+  @apply mt-4 text-dark-300;
 }
 
 .blogpost h2 {
-  @apply mt-7 font-semibold text-xl;
+  @apply mt-7 font-medium text-xl;
 }
 
 .blogpost h3 {
-  @apply mt-6 font-semibold text-lg;
+  @apply mt-6 font-medium text-lg;
 }
 
 .blogpost p {
@@ -17,7 +17,7 @@
 }
 
 .blogpost strong {
-  @apply font-semibold;
+  @apply font-bold;
 }
 
 .blogpost a {
@@ -41,4 +41,8 @@
 
 .blogpost blockquote p {
   @apply mt-0;
+}
+
+.blogpost code.inline {
+  @apply bg-dark-700 px-1.5 py-0.5 rounded;
 }
