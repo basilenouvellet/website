@@ -2,6 +2,8 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@import "./blogpost.css";
+
 /* This file is for your main application CSS */
 
 @layer base {

@@ -1,0 +1,44 @@
+/* Stylesheet for generated blog posts */
+
+.blogpost * {
+  @apply mt-4;
+}
+
+.blogpost h2 {
+  @apply mt-7 font-semibold text-xl;
+}
+
+.blogpost h3 {
+  @apply mt-6 font-semibold text-lg;
+}
+
+.blogpost p {
+  @apply mt-5 leading-relaxed;
+}
+
+.blogpost strong {
+  @apply font-semibold;
+}
+
+.blogpost a {
+  @apply font-medium underline hover:text-neutral-200 transition-colors;
+}
+
+.blogpost ul {
+  @apply list-disc ml-4;
+}
+.blogpost ol {
+  @apply list-decimal ml-4;
+}
+
+.blogpost img {
+  @apply rounded;
+}
+
+.blogpost blockquote {
+  @apply bg-neutral-700/30 px-3 py-2 rounded;
+}
+
+.blogpost blockquote p {
+  @apply mt-0;
+}

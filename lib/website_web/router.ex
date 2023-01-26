@@ -26,6 +26,8 @@ defmodule WebsiteWeb.Router do
 
     live_session :default, on_mount: [Hooks.Analytics] do
       live "/", HomeLive, :index
+      live "/writing", WritingLive, :index
+      live "/writing/:id", WritingLive, :show
     end
   end
 

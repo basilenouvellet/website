@@ -44,6 +44,8 @@ defmodule Website.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:nimble_publisher, "~> 0.1.0"},
+      {:makeup_elixir, ">= 0.0.0"},
       {:req, "~> 0.3"},
       {:plug_canonical_host, "~> 2.0"},
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},

@@ -14,6 +14,53 @@ defmodule WebsiteWeb.CoreComponents do
   alias Phoenix.LiveView.JS
   import WebsiteWeb.Gettext
 
+  attr :folders, :list, required: true
+  attr :h1, :string, required: true
+
+  def breadcrumbs(assigns) do
+    ~H"""
+    <div class="-ml-1.5 flex flex-wrap items-baseline gap-y-1.5 gap-x-0.5">
+      <div class="flex items-baseline space-x-0.5">
+        <%= for folder <- @folders do %>
+          <.link
+            navigate={folder.path}
+            class="py-0.5 px-1.5 text-neutral-400 font-medium hover:bg-neutral-700 hover:text-neutral-200 rounded transition"
+            phx-no-format
+          ><%= folder.name %></.link>
+          <span class="text-neutral-600">/</span>
+        <% end %>
+      </div>
+
+      <h1 class="py-0.5 px-1.5 text-neutral-200 font-bold transition"><%= @h1 %></h1>
+    </div>
+    """
+  end
+
+  attr :title, :string, required: true
+  attr :img_url, :string, required: true
+  attr :class, :string, default: nil
+  attr :rest, :global, include: ~w(navigate)
+
+  def blog_post_card(assigns) do
+    ~H"""
+    <.link
+      class={[
+        "font-medium text-neutral-400 border-2 border-transparent",
+        "hover:bg-neutral-700 hover:border-neutral-700 hover:text-neutral-200",
+        "rounded overflow-hidden transition",
+        @class
+      ]}
+      {@rest}
+    >
+      <div
+        class="aspect-video bg-cover bg-no-repeat bg-center rounded"
+        style={"background-image: url(#{@img_url})"}
+      />
+      <span class="block p-2"><%= @title %></span>
+    </.link>
+    """
+  end
+
   attr :url, :string, required: true
   attr :img_url, :string, default: nil
   attr :label, :string, required: true
@@ -25,15 +72,15 @@ defmodule WebsiteWeb.CoreComponents do
       href={@url}
       target="_blank"
       class={[
-        "flex sm:flex-col items-center gap-4 py-4 sm:py-6 px-6",
+        "flex items-center gap-4 py-4 px-6",
         "text-neutral-400",
         "hover:bg-neutral-700 hover:text-neutral-200",
-        "rounded-2xl transition",
+        "rounded transition",
         @class
       ]}
     >
       <img src={@img_url || "#{@url}/favicon.ico"} alt={@label} class="h-8 w-8 sm:h-10 sm:w-10" />
-      <div class="sm:text-center">
+      <div>
         <span class="block text-base font-bold"><%= @label %></span>
         <span class="block mt-1 text-xs font-normal"><%= @url %></span>
       </div>
@@ -55,7 +102,7 @@ defmodule WebsiteWeb.CoreComponents do
         "inline-flex items-center gap-2",
         "py-1 px-2",
         "font-medium text-neutral-400 hover:bg-neutral-700 hover:text-neutral-200",
-        "rounded-lg transition group",
+        "rounded transition group",
         @class
       ]}
     >
