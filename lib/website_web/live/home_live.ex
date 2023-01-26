@@ -11,12 +11,15 @@ defmodule WebsiteWeb.HomeLive do
       "bg-[url('/images/illustration.webp')] bg-cover bg-no-repeat"
     ]} />
 
-    <div class="py-10 px-4 sm:py-16 sm:px-12 xl:py- xl:px-20">
+    <div class="py-10 px-4 sm:py-12 sm:px-12 xl:py-12 xl:px-20">
       <div class="lg:max-w-xl xl:max-w-2xl">
-        <img class="h-16 w-16 rounded-full" src={~p"/images/profile_pic.webp"} aria-hidden="true" />
-        <h1 class="mt-8 text-3xl text-dark-200 font-extrabold">Basile Nouvellet</h1>
-        <p class="max-w-2xl mt-4 text-dark-400">
-          Product software engineer aiming at building rich, interactive web applications quickly, with less code and fewer moving parts.
+        <div class="flex items-center space-x-4">
+          <img class="h-20 w-20 rounded-full" src={~p"/images/profile_pic.webp"} aria-hidden="true" />
+          <h1 class="text-3xl text-dark-200 font-extrabold">Basile Nouvellet</h1>
+        </div>
+
+        <p class="max-w-lg mt-4 text-dark-400">
+          Product software engineer aiming at building rich, interactive web applications quickly, with less code and fewer moving parts
         </p>
 
         <div>
