@@ -1,15 +1,15 @@
 /* Stylesheet for generated blog posts */
 
 .blogpost * {
-  @apply mt-4 text-dark-300;
+  @apply mt-4 text-dark-400;
 }
 
 .blogpost h2 {
-  @apply mt-7 font-medium text-xl;
+  @apply mt-7 text-dark-300 font-medium text-xl;
 }
 
 .blogpost h3 {
-  @apply mt-6 font-medium text-lg;
+  @apply mt-6 text-dark-300 font-medium text-lg;
 }
 
 .blogpost p {

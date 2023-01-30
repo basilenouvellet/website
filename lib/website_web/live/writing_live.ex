@@ -4,6 +4,31 @@ defmodule WebsiteWeb.WritingLive do
   alias Website.Writing
   alias Website.Writing.Post
 
+  defmodule RelativeTime do
+    use Phoenix.LiveComponent
+
+    def render(assigns) do
+      ~H"""
+      <p class="my-16"><%= @relative_time %> seconds ago</p>
+      """
+    end
+
+    def update(assigns, socket) do
+      schedule_tick(assigns)
+
+      {:ok, assign(socket, relative_time: to_relative_time(assigns.timestamp))}
+    end
+
+    defp schedule_tick(assigns) do
+      Process.send_after(self(), {:tick, assigns}, :timer.seconds(1))
+    end
+
+    defp to_relative_time(timestamp) do
+      {:ok, dt, _} = DateTime.from_iso8601(timestamp)
+      DateTime.diff(DateTime.utc_now(), dt, :second)
+    end
+  end
+
   @impl true
   def render(%{post: nil} = assigns) do
     ~H"""
@@ -32,6 +57,12 @@ defmodule WebsiteWeb.WritingLive do
         h1={@post.title}
       />
 
+      <.live_component
+        module={RelativeTime}
+        id="relative-time"
+        timestamp={DateTime.utc_now() |> DateTime.to_iso8601()}
+      />
+
       <div class="mt-10 max-w-2xl blogpost"><%= raw(@post.body) %></div>
     </div>
     """
@@ -42,6 +73,12 @@ defmodule WebsiteWeb.WritingLive do
   @impl true
   def mount(_params, _session, socket) do
     {:ok, socket}
+  end
+
+  @impl true
+  def handle_info({:tick, assigns}, socket) do
+    send_update(RelativeTime, assigns)
+    {:noreply, socket}
   end
 
   @impl true
