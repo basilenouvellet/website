@@ -10,7 +10,7 @@ on:
       otp-version:
         required: false
         type: string
-        default: "25.1.2"
+        default: "25.2.2"
 
 env:
   MIX_ENV: test
