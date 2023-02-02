@@ -5,6 +5,7 @@ ARG ALPINE_VERSION="3.17.0"
 # NOTE: "We use Ubuntu/Debian instead of Alpine to avoid DNS resolution issues in production."
 #       from generated Dockerfile by Phoenix.
 #       For the moment, let's try Alpine anyway.
+#       Check which version is available on https://hub.docker.com/r/hexpm/elixir/tags?page=1&name=1.14.3-erlang-25.2.2-alpine.
 #
 # ARG BUILDER_IMAGE="hexpm/elixir:${ELIXIR_VERSION}-erlang-${ERLANG_VERSION}-debian-bullseye-20210902-slim"
 # ARG RUNNER_IMAGE="debian:bullseye-20210902-slim"
