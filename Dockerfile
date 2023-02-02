@@ -1,6 +1,6 @@
 ARG ELIXIR_VERSION="1.14.3"
 ARG ERLANG_VERSION="25.2.2"
-ARG ALPINE_VERSION="3.16.2"
+ARG ALPINE_VERSION="3.17.0"
 
 # NOTE: "We use Ubuntu/Debian instead of Alpine to avoid DNS resolution issues in production."
 #       from generated Dockerfile by Phoenix.
