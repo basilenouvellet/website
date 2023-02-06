@@ -33,7 +33,7 @@ jobs:
           images: ${{ env.DOCKER_IMAGE_NAME }}
 
       - name: Build Docker image
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           push: true
