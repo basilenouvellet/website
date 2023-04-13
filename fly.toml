@@ -1,6 +1,7 @@
 app = "website-basile"
 kill_signal = "SIGTERM"
 kill_timeout = 5
+primary_region = "cdg"
 processes = []
 
 [deploy]
@@ -19,6 +20,9 @@ processes = []
 [experimental]
   allowed_public_ports = []
   auto_rollback = true
+  cmd = []
+  entrypoint = []
+  exec = []
 
 [[services]]
   http_checks = []
