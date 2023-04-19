@@ -28,11 +28,17 @@ defmodule WebsiteWeb.HomeLive do
             <:title>building</:title>
           </.section_title>
 
-          <div class="w-fit mt-4 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
+          <div class="w-fit mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
             <.card_link_with_image
               url="https://piga.io"
               img_url={~p"/images/piga-logo-192.webp"}
               label="Piga"
+            />
+
+            <.card_link_with_image
+              url="https://liveroom.app"
+              img_url={~p"/images/liveroom-logo-192.webp"}
+              label="Liveroom"
             />
 
             <.card_link_with_image
