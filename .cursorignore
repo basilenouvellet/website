@@ -1,0 +1,19 @@
+!*
+
+/_build/
+/deps/
+/.elixir_ls/
+
+/priv/static/assets/
+/assets/vendor/
+
+/.github/
+/.git/
+
+.envrc
+erl_crash.dump
+
+# Database files
+*.db
+*.db-*
+/litefs/
