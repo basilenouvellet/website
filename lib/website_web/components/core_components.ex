@@ -65,6 +65,7 @@ defmodule WebsiteWeb.CoreComponents do
   attr :img_url, :string, default: nil
   attr :label, :string, required: true
   attr :class, :string, default: nil
+  attr :stopped, :boolean, default: false
 
   def card_link_with_image(assigns) do
     ~H"""
@@ -72,17 +73,23 @@ defmodule WebsiteWeb.CoreComponents do
       href={@url}
       target="_blank"
       class={[
-        "flex items-center gap-4 py-4 px-6",
+        "flex items-center gap-4 p-2",
         "text-dark-400",
-        "hover:bg-dark-700 hover:text-dark-200",
         "rounded transition",
+        @stopped && "opacity-50 pointer-events-none",
+        !@stopped && "hover:bg-dark-700 hover:text-dark-200",
         @class
       ]}
     >
       <img src={@img_url || "#{@url}/favicon.ico"} alt={@label} class="h-8 w-8 sm:h-10 sm:w-10" />
-      <div>
-        <span class="block text-base font-bold"><%= @label %></span>
-        <span class="block mt-1 text-xs font-normal"><%= @url %></span>
+      <div class="flex-grow">
+        <div class="flex items-center justify-between gap-6">
+          <span class="block text-base font-bold"><%= @label %></span>
+          <span :if={@stopped} class="text-xs px-1 py-0.5 bg-dark-700 text-dark-400 rounded">
+            stopped
+          </span>
+        </div>
+        <span class="block mt-1 text-xs font-normal select-all"><%= @url %></span>
       </div>
     </a>
     """

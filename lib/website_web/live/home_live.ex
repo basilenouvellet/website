@@ -28,13 +28,7 @@ defmodule WebsiteWeb.HomeLive do
             <:title>building</:title>
           </.section_title>
 
-          <div class="w-fit mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <.card_link_with_image
-              url="https://piga.io"
-              img_url={~p"/images/piga-logo-192.webp"}
-              label="Piga"
-            />
-
+          <div class="w-fit mt-4 grid grid-cols-1 gap-8 sm:grid-cols-2">
             <.card_link_with_image
               url="https://liveroom.app"
               img_url={~p"/images/liveroom-logo-192.webp"}
@@ -42,9 +36,17 @@ defmodule WebsiteWeb.HomeLive do
             />
 
             <.card_link_with_image
+              url="https://piga.io"
+              img_url={~p"/images/piga-logo-192.webp"}
+              label="Piga"
+              stopped
+            />
+
+            <.card_link_with_image
               url="https://beachkam.com"
               img_url={~p"/images/beachkam-logo-192.webp"}
               label="Beachkam"
+              stopped
             />
           </div>
 
